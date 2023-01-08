@@ -1,23 +1,42 @@
 import React, { FC } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+interface Props {
+    texto?: string;
+    tipo?: 'primario' | 'secundario';
+    onClink?: () => {};
+}
 
-const BotaoEstilizado = styled.button`
-    background: #EB9B00;
+const BotaoEstilizado = styled.button<Props>`
+    background: ${(props: Props) => props.tipo === 'primario' ? '#EB9B00' : '#FFF'};
     padding: 16px 32px;
     border: 2px solid #EB9B00;
-    color: #FFF;
+    color: ${(props: Props) => props.tipo === 'primario' ? '#FFF' : '#EB9B00'};
     font-size: 20px;
     cursor: pointer;
-    &:hover {
-        background: #BB7900;
-        border: 2px solid #BB7900;
+    ${ (props: Props) => props.tipo === 'primario' 
+    ? css`&:hover {
+            background: #B87900;
+            border: 2px solid #B87900;
+        }`
+
+    : css`&:hover {
+            background: #FFF;
+            border: 2px solid #B87900;
+        }`
     }
 `
 
-export const AbBotao: FC = () => {
+export const AbBotao: FC<Props> = ({ 
+    texto, 
+    tipo = 'primario', 
+    onClink 
+}) => {
     return (
-        <BotaoEstilizado>
-            Clique Aqui!
+        <BotaoEstilizado
+            onClick={onClink}
+            tipo={tipo}
+        >
+            {texto}
         </BotaoEstilizado>
     );
 }
