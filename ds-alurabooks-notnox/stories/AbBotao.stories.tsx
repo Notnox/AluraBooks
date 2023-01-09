@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { AbBotao } from '../src'
 

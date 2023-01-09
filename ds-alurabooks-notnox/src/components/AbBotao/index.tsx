@@ -10,6 +10,7 @@ const BotaoEstilizado = styled.button<Props>`
     background: ${(props: Props) => props.tipo === 'primario' ? '#EB9B00' : '#FFF'};
     padding: 16px 32px;
     border: 2px solid #EB9B00;
+    font-weight: 700;
     color: ${(props: Props) => props.tipo === 'primario' ? '#FFF' : '#EB9B00'};
     font-size: 20px;
     cursor: pointer;
