@@ -1,7 +1,7 @@
 # Name of our action
 name: Release
 
-# The event that will trigger the action
+# The event that will trigger the action 
 on:
   push:
     branches: [main]
